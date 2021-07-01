@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# Remove WPS metgrid files
+echo Listing WPS metgrid files:
+ls met_em.*.nc
+read -p "Remove WPS metgrid files (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+	echo Yes
+	echo rm met_em.*.nc
+	rm met_em.*.nc
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Remove WPS ungrib files
+echo Listing WPS ungrib files:
+ls GRIBFILE.* PFILE:* FILE:*
+read -p "Remove ungrib files (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+	echo Yes
+	echo rm GRIBFILE.* FILE:*
+	rm GRIBFILE.* FILE:*
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Remove WPS geogrid files
+echo Listing WPS geogrid files:
+ls geo_em.*.nc
+read -p "Remove geogrid files (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+	echo Yes
+	echo rm geo_em.*.nc
+        rm geo_em.*.nc
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Remove WPS log files
+echo Listing WPS log files:
+ls log.metgrid log.ungrib log.geogrid
+read -p "Remove log files (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+	echo Yes
+	echo rm log.metgrid log.ungrib log.geogrid
+        rm log.metgrid log.ungrib log.geogrid
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Remove TAVGSFC
+echo Listing TAVGSFC files:
+ls TAVGSFC
+read -p "Remove TAVGSFC (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+	echo Yes
+	echo rm TAVGSFC
+        rm TAVGSFC
+    ;;
+    * )
+        echo No
+    ;;
+esac
+

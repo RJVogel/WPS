@@ -1,0 +1,109 @@
+#!/bin/bash
+
+# Take path name as input argument
+RESULTSPATH=${1?Error: no path given! Please specify path, where files should be copied.}
+
+# Create directory
+echo Directory is $RESULTSPATH
+read -p "Create directory (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+        echo mkdir -p $RESULTSPATH
+	mkdir -p $RESULTSPATH
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Copy Log files
+echo Listing WPS log files:
+ls log.geogrid log.ungrib log.metgrid
+read -p "Copy log files (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+        echo cp log.geogrid log.ungrib log.metgrid $RESULTSPATH
+	cp log.geogrid log.ungrib log.metgrid $RESULTSPATH
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Copy Tables
+echo Listing tables:
+ls geogrid/GEOGRID.TBL
+read -p "Copy tables (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+        echo cp geogrid/GEOGRID.TBL $RESULTSPATH
+        cp geogrid/GEOGRID.TBL $RESULTSPATH
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Copy namelist files
+echo Listing namelist files:
+ls namelist.wps
+read -p "Copy namelist files (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+        echo cp namelist.wps $RESULTSPATH
+        cp namelist.wps $RESULTSPATH
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Copy geo_em files
+echo Listing geo_em files:
+ls geo_em*
+read -p "Copy geo_em files (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+        echo cp geo_em* $RESULTSPATH
+        cp geo_em* $RESULTSPATH
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Copy ungribbed files
+echo Listing ungribbed files:
+ls FILE*
+read -p "Copy ungribbed files (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+        echo cp FILE* $RESULTSPATH
+        cp FILE* $RESULTSPATH
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Copy met_em files
+echo Listing met_em files:
+ls met_em*
+read -p "Copy met_em files (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+        echo cp met_em* $RESULTSPATH
+        cp met_em* $RESULTSPATH
+    ;;
+    * )
+        echo No
+    ;;
+esac
+

@@ -1,0 +1,88 @@
+#!/bin/bash
+
+# Configuration
+GRIBFILES=../DATA/GRIB/NOAA-GFS-ANL-05deg_2010-03-21_00-00-00_105.0d/gfsanl_4_20
+VTABLE=ungrib/Variable_Tables/Vtable.GFS_PRMSL
+
+# Run geogrid
+read -p "Run geogrid.exe (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+	echo ./geogrid.exe |& tee log.geogrid
+	./geogrid.exe |& tee log.geogrid
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Link Grib files into WPS directory
+echo Listing grib files:
+ls $GRIBFILES*
+read -p "Link grib files into WPS directory (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+	echo ./link_grib.csh $GRIBFILES
+	./link_grib.csh $GRIBFILES
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# GFS: Link Vtable into WPS directory
+echo Listing Vtable for GFS:
+ls $VTABLE
+read -p "Link Vtable for GFS into WPS directory (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+	echo ln -sf $VTABLE Vtable
+	ln -sf $VTABLE Vtable
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# GFS: Run ungrib
+read -p "Run ungrib.exe for GFS (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+	echo ./ungrib.exe |& tee log.ungrib
+	./ungrib.exe |& tee log.ungrib
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Calculate daily mean surface temperature to substitude SST field only over lakes
+read -p "Run avg_tsfc.exe (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+	echo ./util/avg_tsfc.exe |& tee log.ungrib
+	./util/avg_tsfc.exe |& tee log.ungrib
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Run metgrid
+read -p "Run metgrid.exe (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+	echo ./metgrid.exe |& tee log.metgrid
+	./metgrid.exe |& tee log.metgrid
+    ;;
+    * )
+        echo No
+    ;;
+esac
+

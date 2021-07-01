@@ -1,0 +1,41 @@
+&share
+    wrf_core = 'ARW'
+    max_dom = 4
+    start_date = '2010-06-21_00:00:00', '2010-06-21_00:00:00', '2010-06-21_00:00:00',
+                 '2010-06-21_00:00:00'
+    end_date = '2010-07-04_00:00:00', '2010-07-04_00:00:00', '2010-07-04_00:00:00',
+               '2010-07-04_00:00:00'
+    interval_seconds = 3600
+    io_form_geogrid = 2
+/
+
+&geogrid
+    parent_id = 1, 1, 2, 3
+    parent_grid_ratio = 1, 5, 5, 5
+    i_parent_start = 1, 71, 41, 41
+    j_parent_start = 1, 71, 41, 41
+    e_we = 161, 101, 101, 101
+    e_sn = 161, 101, 101, 101
+    geog_data_res = 'corine2012', 'corine2012-urban', 'corine2012-urban',
+                    'corine2012-urban'
+    dx = 12500
+    dy = 12500
+    map_proj = 'lambert'
+    ref_lat = 52.5208879
+    ref_lon = 13.4094428
+    truelat1 = 52.48
+    truelat2 = 52.57
+    stand_lon = 13.4094428
+    geog_data_path = '/opt/ARW/DATA/WPS_GEOG'
+/
+
+&ungrib
+    out_format = 'WPS'
+    prefix = 'FILE'
+/
+
+&metgrid
+    constants_name = 'TAVGSFC'
+    fg_name = 'FILE'
+    io_form_metgrid = 2
+/
