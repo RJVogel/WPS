@@ -1,29 +1,28 @@
 &share
     wrf_core = 'ARW'
-    max_dom = 4
-    start_date = '2020-09-10_00:00:00', '2020-09-10_00:00:00', '2020-09-10_00:00:00', '2020-09-10_00:00:00'
-    end_date = '2020-09-13_00:00:00', '2020-09-13_00:00:00', '2020-09-13_00:00:00', '2020-09-13_00:00:00'
+    max_dom = 2
+    start_date = '2002-06-09_00:00:00', '2002-06-09_00:00:00'
+    end_date = '2002-06-12_00:00:00', '2002-06-12_00:00:00'
     interval_seconds = 3600
-    io_form_geogrid = 2
 /
 
 &geogrid
-    parent_id = 1, 1, 2, 3
-    parent_grid_ratio = 1, 5, 3, 3
-    i_parent_start = 1, 58, 46, 65
-    j_parent_start = 1, 58, 48, 63
-    e_we = 145, 151, 181, 157
-    e_sn = 145, 151, 169, 133
-    geog_data_res = 'corine2012', 'corine2012', 'corine2012-urban+imd2018', 'corine2012-urban+imd2018'
-    dx = 13500
-    dy = 13500
+    parent_id = 1, 1
+    parent_grid_ratio = 1, 3
+    i_parent_start = 1, 155
+    j_parent_start = 1, 155
+    e_we = 343, 103
+    e_sn = 343, 103
+    geog_data_res = 'corine2012', 'corine2012-urban+imd2018'
+    dx = 3000
+    dy = 3000
     map_proj = 'lambert'
-    ref_lat = 52.506579
-    ref_lon = 13.424401
-    truelat1 = 52.328866
-    truelat2 = 52.684286
-    stand_lon = 13.424401
-    geog_data_path = '/opt/ARW/DATA/WPS_GEOG'
+    ref_lat = 47.554722
+    ref_lon = 7.590556
+    truelat1 = 47.095929
+    truelat2 = 48.013405
+    stand_lon = 7.590556
+    geog_data_path = '/opt/DATA/WPS_GEOG'
 /
 
 &ungrib
