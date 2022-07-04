@@ -171,8 +171,8 @@ name=LAI12M
         masked = water
         fill_missing = 0.
         rel_path=modis_lai:lai_modis_30s/
-        rel_path= lowres:lai_modis_10m/
-        rel_path=default:lai_modis_10m/
+        rel_path=lowres:lai_modis_10m/
+        rel_path=default:lai_modis_30s/
         flag_in_output=FLAG_LAI12M
 ===============================
 name=SNOALB
@@ -405,7 +405,7 @@ name = VAR_SSO
         rel_path =        5m:varsso_5m/
         rel_path =        10m:varsso_10m/
         rel_path =        lowres:varsso_10m/
-        rel_path =        default:varsso_10m/
+        rel_path =        default:varsso/
         flag_in_output=FLAG_VAR_SSO
 ===============================
 name = LAKE_DEPTH

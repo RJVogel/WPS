@@ -4,10 +4,11 @@
 
 # Berlin 2010
 # GRIBFILES=../DATA/GRIB/ERA5_20100618_20100704_-5.0_30.0E_40.0_65.0N/ERA5_20100618_20100704_-5.0_30.0E_40.0_65.0N_
-GRIBFILES=../../DATA/GRIB/ERA5_20100618_20100704_-5.0_35.0E_40.0_65.0N/ERA5_20100618_20100704_-5.0_35.0E_40.0_65.0N_
+# GRIBFILES=../../DATA/GRIB/ERA5_20100618_20100704_-5.0_35.0E_40.0_65.0N/ERA5_20100618_20100704_-5.0_35.0E_40.0_65.0N_
+GRIBFILES=../../DATA/GRIB/ERA5_20100610_20100703_-25.0_50.0E_30.0_75.0N/ERA5_20100610_20100703_-25.0_50.0E_30.0_75.0N_
 
 # Basel 2002
-GRIBFILES=../../DATA/GRIB/ERA5_20020609_20020623_-2.0_17.0E_40.0_55.0N/ERA5_20020609_20020623_-2.0_17.0E_40.0_55.0N_
+# GRIBFILES=../../DATA/GRIB/ERA5_20020609_20020623_-2.0_17.0E_40.0_55.0N/ERA5_20020609_20020623_-2.0_17.0E_40.0_55.0N_
 
 # Berlin 2020
 # GRIBFILES=../../DATA/GRIB/ERA5_20200910_20200924_-17_44E_32_73N/ERA5_20200910_20200924_-17_44E_32_73N_
@@ -19,6 +20,11 @@ GRIBFILES=../../DATA/GRIB/ERA5_20020609_20020623_-2.0_17.0E_40.0_55.0N/ERA5_2002
 VTABLE=ungrib/Variable_Tables/Vtable.ERA-interim.pl
 NML_WPS=namelist.wps.pytools
 NML_WPS_LAKE=namelist.wps.pytools.lake
+NML_WPS_MET=namelist.wps.pytools.met
+
+# Source libraries
+echo  source ./load_libraries
+source ./load_libraries
 
 # Link namelist
 echo ln -sf $NML_WPS namelist.wps
@@ -97,9 +103,9 @@ case ${answer:0:1} in
     ;;
 esac
 
-# Link namelist again
-echo ln -sf $NML_WPS namelist.wps
-ln -sf $NML_WPS namelist.wps
+# Link namelist for metgrid
+echo ln -sf $NML_WPS_MET namelist.wps
+ln -sf $NML_WPS_MET namelist.wps
 
 # Run metgrid
 read -p "Run metgrid.exe (y/Enter)? " answer
