@@ -996,6 +996,15 @@ name = OL4SS
         rel_path = 2deg:orogwd3_2deg/ol4ss/
         rel_path = default:orogwd3_10m/ol4ss/
 ===============================
+name = BATHYMETRY
+        priority = 1
+        dest_type = continuous
+        optional=yes
+        fill_missing=999.
+        interp_option = default:average_gcell(1.0)+search(5)
+        rel_path =  default:topobath_30s/
+        flag_in_output=FLAG_BATHYMETRY
+==============================
 name=CROPTYPE
         priority=1
         optional=yes
@@ -1068,6 +1077,15 @@ name=FIFRACT
         masked = water
         fill_missing = 0.
         rel_path=default:crop/flood_fra/
+===============================
+name=TD_FRACTION
+        priority=1
+        optional=yes
+        dest_type=continuous
+        interp_option=default:average_gcell(4.0)+four_pt+average_4pt
+        masked = water
+        fill_missing = 0.
+        rel_path=default:crop/drainage_map/
 ===============================
 name=FDEPTH
         priority=1
