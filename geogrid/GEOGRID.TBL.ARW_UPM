@@ -37,7 +37,7 @@ name=LANDUSEF
         rel_path = modis:modis_landuse_20class_15s_with_lakes/
         rel_path = clc:modis_landuse_20class_15s_with_lakes/
         rel_path = lcz-europe:modis_landuse_20class_15s_with_lakes/
-        rel_path = lcz-berlin:lcz_europe_100m_41class/
+        rel_path = lcz-berlin:clc_2018_100m_20class_with_lakes/
 ===============================
 name=LANDUSEF
         priority = 2
@@ -54,7 +54,7 @@ name=LANDUSEF
         rel_path = modis:modis_landuse_20class_15s_with_lakes/
         rel_path = clc:modis_landuse_20class_15s_with_lakes/
         rel_path = lcz-europe:clc_2018_100m_20class_with_lakes/
-        rel_path = lcz-berlin:lcz_berlin_100m_41class_water_is_lakes/
+        rel_path = lcz-berlin:lcz_europe_100m_41class/
 ===============================
 name=LANDUSEF
         priority = 3
