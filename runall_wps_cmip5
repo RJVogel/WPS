@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# Run without hangup
+# (yes | nohup ./runall_wps_cmip5 IMDFILES) &
+
+IMDFILES=${1?Error: Input variable IMDFILES not given. Please specify path e.g. /data/Datasets/NWP/NCAR_CESM_CMIP5/RCP6.0_2048-12-21T00_2050-12-21T00/CCSM4_CMIP5_MOAR_BC_RCP60}
+
+# Constants
+NML_WPS=namelist.wps.pytools
+NML_WPS_LAKE=namelist.wps.pytools.lake
+NML_WPS_MET=namelist.wps.pytools.met
+
+# Source libraries
+echo  source ./load_libraries
+source ./load_libraries
+
+# Link namelist
+echo ln -sf $NML_WPS namelist.wps
+ln -sf $NML_WPS namelist.wps
+
+# Run geogrid
+read -p "Run geogrid.exe (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+	echo ./geogrid.exe |& tee log.geogrid
+	./geogrid.exe |& tee log.geogrid
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Link IMD files into WPS directory
+echo Listing IMD files:
+ls $IMDFILES*
+read -p "Link IMD files into WPS directory (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+	echo ln -sf $IMDFILES* .
+        ln -sf $IMDFILES* .
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Link lake namelist for calculating TAVGSFC
+echo ln -sf $NML_WPS_LAKE namelist.wps
+ln -sf $NML_WPS_LAKE namelist.wps
+
+# Calculate daily mean surface temperature to substitude SST field only over lakes
+read -p "Run avg_tsfc.exe (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+	echo ./util/avg_tsfc.exe |& tee log.ungrib
+	./util/avg_tsfc.exe |& tee log.ungrib
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
+# Link namelist for metgrid
+echo ln -sf $NML_WPS_MET namelist.wps
+ln -sf $NML_WPS_MET namelist.wps
+
+# Run metgrid
+read -p "Run metgrid.exe (y/Enter)? " answer
+case ${answer:0:1} in
+    y|Y|"" )
+        echo Yes
+	echo ./metgrid.exe |& tee log.metgrid
+	./metgrid.exe |& tee log.metgrid
+    ;;
+    * )
+        echo No
+    ;;
+esac
+
