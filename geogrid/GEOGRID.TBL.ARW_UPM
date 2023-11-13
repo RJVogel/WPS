@@ -89,7 +89,7 @@ name=LANDUSEF
         rel_path = clc33:clc_2018_100m_33class_with_lakes/
         rel_path = lcz-europe:lcz_europe_100m_41class/
         rel_path = lcz-berlin:lcz_berlin_100m_41class_water_is_lakes/
-        rel_path = cglc_modis_lcz:CGLC_MODIS_LCZ_global/
+        rel_path = cglc_modis_lcz:CGLC_MODIS_LCZ_global_61class/
 ===============================
 name=SOILTEMP
         priority=1
