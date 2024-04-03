@@ -17,13 +17,13 @@ esac
 
 # Remove WPS ungrib files
 echo Listing WPS ungrib files:
-ls GRIBFILE.* PFILE:* FILE:*
+ls GRIBFILE.* FILE:* CCSM4_CMIP5_MOAR_*
 read -p "Remove ungrib files (y/Enter)? " answer
 case ${answer:0:1} in
     y|Y|"" )
 	echo Yes
-	echo rm GRIBFILE.* FILE:*
-	rm GRIBFILE.* FILE:*
+	echo rm GRIBFILE.* FILE:*  CCSM4_CMIP5_MOAR_*
+	rm GRIBFILE.* FILE:* CCSM4_CMIP5_MOAR_*
     ;;
     * )
         echo No

@@ -42,7 +42,7 @@ name=LANDUSEF
         interp_option =  modis:nearest_neighbor
         interp_option = cglc_modis_lcz:nearest_neighbor
         rel_path = modis:modis_landuse_20class_15s_with_lakes/
-        rel_path = cglc_modis_lcz:CGLC_MODIS_LCZ_global/
+        rel_path = cglc_modis_lcz:CGLC_MODIS_LCZ_global_61class/
 ===============================
 name=SOILTEMP
         priority=1
