@@ -368,7 +368,7 @@ name = VAR_SSO
         rel_path =        5m:varsso_5m/
         rel_path =        10m:varsso_10m/
         rel_path =        lowres:varsso_10m/
-        rel_path =        default:varsso/
+        rel_path =        default:varsso_10m/
         flag_in_output=FLAG_VAR_SSO
 ===============================
 name = LAKE_DEPTH

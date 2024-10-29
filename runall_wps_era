@@ -85,8 +85,8 @@ read -p "Run avg_tsfc.exe (y/Enter)? " answer
 case ${answer:0:1} in
     y|Y|"" )
         echo Yes
-	echo ./util/avg_tsfc.exe |& tee log.ungrib
-	./util/avg_tsfc.exe |& tee log.ungrib
+	echo ./util/avg_tsfc.exe |& tee log.avgtsfc
+	./util/avg_tsfc.exe |& tee log.avgtsfc
     ;;
     * )
         echo No
