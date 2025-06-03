@@ -14,10 +14,10 @@ name = HGT_M
         interp_option = default:average_gcell(4.0)+four_pt+average_4pt
         rel_path = topo_gmted2010_5m:topo_gmted2010_5m/
         rel_path = topo_gmted2010_30s:topo_gmted2010_30s/
-        rel_path = topo_aster_30s:topo_ASTGTM_30s/
-        rel_path = topo_aster_6s:topo_ASTGTM_6s/
+        rel_path = topo_30s:topo_ASTGTM_30s/
+        rel_path = topo_3s:topo_ASTGTM_6s/
         rel_path = topo_by_1s:topo_ASTGTM_6s/
-        rel_path = default:topo_ASTGTM_30s/
+        rel_path = default:topo_SRTMGL1_30s/
 ===============================
 name = HGT_M
         priority = 2
@@ -32,10 +32,28 @@ name = HGT_M
         interp_option = default:average_gcell(4.0)+four_pt+average_4pt
         rel_path = topo_gmted2010_5m:topo_gmted2010_5m/
         rel_path = topo_gmted2010_30s:topo_gmted2010_30s/
-        rel_path = topo_aster_30s:topo_ASTGTM_30s/
-        rel_path = topo_aster_6s:topo_ASTGTM_6s/
+        rel_path = topo_30s:topo_ASTGTM_30s/
+        rel_path = topo_3s:topo_ASTGTM_6s/
+        rel_path = topo_by_1s:topo_SRTMGL1_3s/
+        rel_path = default:topo_SRTMGL1_30s/
+===============================
+name = HGT_M
+        priority = 3
+        dest_type = continuous
+        smooth_option = smth-desmth_special; smooth_passes=1
+        fill_missing = 0.
+        interp_option = topo_gmted2010_5m:average_gcell(4.0)+four_pt
+        interp_option = topo_gmted2010_30s:average_gcell(4.0)+four_pt+average_4pt
+        interp_option = topo_aster_30s:average_gcell(4.0)+four_pt+average_4pt
+        interp_option = topo_aster_6s:average_gcell(4.0)+four_pt+average_4pt
+        interp_option = topo_by_1s:average_gcell(4.0)+four_pt+average_4pt
+        interp_option = default:average_gcell(4.0)+four_pt+average_4pt
+        rel_path = topo_gmted2010_5m:topo_gmted2010_5m/
+        rel_path = topo_gmted2010_30s:topo_gmted2010_30s/
+        rel_path = topo_30s:topo_SRTMGL1_30s/
+        rel_path = topo_3s:topo_SRTMGL1_3s/
         rel_path = topo_by_1s:topo_by_1s/
-        rel_path = default:topo_ASTGTM_30s/
+        rel_path = default:topo_SRTMGL1_30s/
 ===============================
 name=LANDUSEF
         priority=1
